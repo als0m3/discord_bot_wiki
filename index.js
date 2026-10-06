@@ -1,7 +1,10 @@
 const discord = require('discord.js');
 const url = require('url');
 const client = new discord.Client();
-const token = ""//token_bot;
+const token = process.env.DISCORD_BOT_TOKEN;
+if (!token) {
+    throw new Error('Set DISCORD_BOT_TOKEN before starting the bot.');
+}
 const channel_id = '' //channel id;
 
 client.on('ready', () => {

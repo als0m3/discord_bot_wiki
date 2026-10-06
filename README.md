@@ -1,27 +1,28 @@
-# Wiki Discord Bot
+# Wikipedia Discord bot
 
-Mini python project using SpeechRecognition in french
-### Feature
-  - Search a wiki by typing a command inside a channel
-  - type 'fr' or 'eng' to search in french or english
+An earlier JavaScript bot that responds to `wiki` commands with Wikipedia article links in French or English.
 
-  ```sh
-$ wiki en Apple
-$ wiki fr Pomme
+```text
+wiki en Apple
+wiki fr Pomme
 ```
 
-### Installation
+## Setup
 
-Linux
+Create your own bot in the [Discord developer portal](https://discord.com/developers/applications), invite it to your server, then install dependencies locally:
 
 ```sh
-$ sudo apt install nodejs npm
+npm ci --ignore-scripts
 ```
-  - Create a channel discord
-  - Create a bot [here](https://discord.com/developers/applications) and add it to your channel
 
-### Launch
-At root of folder
+Set `DISCORD_BOT_TOKEN` through your shell or secret manager, then run `node index.js`. Never commit the token. Installed `node_modules` are excluded from version control; the manifest and lock file describe dependencies.
+
+## Compatibility
+
+This project still uses discord.js 12 and legacy collection APIs. A migration to a supported discord.js version, intents configuration, and live bot testing are required before relying on it. No Discord connection or message delivery is part of the local syntax check:
+
 ```sh
-$ node .
+node --check index.js
 ```
+
+See [SECURITY.md](SECURITY.md) for private vulnerability reports.
